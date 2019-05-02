@@ -111,40 +111,38 @@ namespace JobBoard.Tests
       Assert.AreEqual(updatedContact, result);
     }
 
-    // [TestMethod]
-    // public void GetAll_ReturnsEmptyList_JobOpeningList()
-    // {
-    //   //Arrange
-    //   List<JobOpening> newList = new List<JobOpening> { };
-    //
-    //   //Act
-    //   List<JobOpening> result = JobOpening.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_JobOpeningList()
+    {
+      //Arrange
+      List<JobOpening> newList = new List<JobOpening> { };
 
-    // [TestMethod]
-    // public void GetAll_ReturnsOpenings_JobOpeningList()
-    // {
-    //   //Arrange
-    //   string title1 = "Assistant";
-    //   string title2 = "Programer";
-    //   string description1 = " ";
-    //   string description2 = " ";
-    //   string contact1 = " ";
-    //   string contact2 = " ";
-    //   JobOpening newOpening1 = new JobOpening(title1);
-    //   JobOpening newOpening2 = new JobOpening(title2);
-    //   List<JobOpening> newList = new List<JobOpening> { newOpening1, newOpening2 };
-    //
-    //   //Act
-    //   List<JobOpening> result = JobOpening.GetAll();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-  //
+      //Act
+      List<JobOpening> result = JobOpening.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+  public void Find_ReturnsCorrectJobOpening_JobOpening()
+  {
+    //Arrange
+    string title1 = "Assistant";
+    string title2 = "Programer";
+    string description1 = "Get to work";
+    string description2 = "Do some code";
+    string contact1 = "Sarah";
+    string contact2 = "Priscila";
+    JobOpening newJobOpening1 = new JobOpening(title1, description1, contact1);
+    JobOpening newJobOpening2 = new JobOpening(title2, description2, contact2);
+
+    //Act
+    JobOpening result = JobOpening.Find(2);
+
+    //Assert
+    Assert.AreEqual(newJobOpening2, result);
+  }
     [TestMethod]
     public void GetId_OpeningsInstantiateWithAnIdAndGetterReturns_Int()
     {
@@ -156,28 +154,28 @@ namespace JobBoard.Tests
       int result = newJobOpening.GetId();
 
       //Assert
-      Assert.AreEqual(10, result);
+      Assert.AreEqual(1, result);
     }
 
-  //   [TestMethod]
-  // public void Find_ReturnsCorrectJobOpening_JobOpening()
-  // {
-  //   //Arrange
-  //   string title1 = "Assistant";
-  //   string title2 = "Programer";
-  //   string description1 = "Get to work";
-  //   string description2 = "Do some code";
-  //   string contact1 = "Sarah";
-  //   string contact2 = "Priscila";
-  //   JobOpening newJobOpening1 = new JobOpening(title1, description1, contact1);
-  //   JobOpening newJobOpening2 = new JobOpening(title2, description2, contact2);
-  //
-  //   //Act
-  //   JobOpening result = JobOpening.Find(2);
-  //
-  //   //Assert
-  //   Assert.AreEqual(newJobOpening2, result);
-  // }
+    [TestMethod]
+  public void Find_ReturnsCorrectJobOpening_JobOpening()
+  {
+    //Arrange
+    string title1 = "Assistant";
+    string title2 = "Programer";
+    string description1 = "Get to work";
+    string description2 = "Do some code";
+    string contact1 = "Sarah";
+    string contact2 = "Priscila";
+    JobOpening newJobOpening1 = new JobOpening(title1, description1, contact1);
+    JobOpening newJobOpening2 = new JobOpening(title2, description2, contact2);
+
+    //Act
+    JobOpening result = JobOpening.Find(2);
+
+    //Assert
+    Assert.AreEqual(newJobOpening2, result);
+  }
 
   }
 }

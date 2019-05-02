@@ -125,24 +125,25 @@ namespace JobBoard.Tests
     }
 
     [TestMethod]
-  public void Find_ReturnsCorrectJobOpening_JobOpening()
-  {
-    //Arrange
-    string title1 = "Assistant";
-    string title2 = "Programer";
-    string description1 = "Get to work";
-    string description2 = "Do some code";
-    string contact1 = "Sarah";
-    string contact2 = "Priscila";
-    JobOpening newJobOpening1 = new JobOpening(title1, description1, contact1);
-    JobOpening newJobOpening2 = new JobOpening(title2, description2, contact2);
+    public void GetAll_ReturnsOpenings_JobOpeningList()
+    {
+      //Arrange
+      string title1 = "Assistant";
+      string title2 = "Programer";
+      string description1 = "Get to work ";
+      string description2 = "Do some code";
+      string contact1 = "Sarah";
+      string contact2 = "Priscila";
+      JobOpening newOpening1 = new JobOpening(title1, description1, contact1);
+      JobOpening newOpening2 = new JobOpening(title2, description2, contact2);
+      List<JobOpening> newList = new List<JobOpening> { newOpening1, newOpening2 };
 
-    //Act
-    JobOpening result = JobOpening.Find(2);
+      //Act
+      List<JobOpening> result = JobOpening.GetAll();
 
-    //Assert
-    Assert.AreEqual(newJobOpening2, result);
-  }
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
     [TestMethod]
     public void GetId_OpeningsInstantiateWithAnIdAndGetterReturns_Int()
     {
